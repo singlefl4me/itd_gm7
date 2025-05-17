@@ -1,0 +1,20 @@
+charset,UTF-8
+
+name,into the darkness...
+type,ghost
+
+shiori,yaya.dll
+
+craftman,idk
+craftmanw,idkimtired
+craftmanurl,https://github.com/singlefl4me
+
+sakura.name,Shadow Sprite
+kero.name,
+
+icon,icon.ico
+
+sstp.allowunspecifiedsend,0
+
+balloon,wisp
+default.balloon.path,\wisp

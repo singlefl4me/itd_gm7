@@ -1,0 +1,102 @@
+//—————————————————————————————— Installing something ——————————————————————————————
+
+OnInstallComplete
+{
+	"\0\s[0]Installed %(reference1) (%(reference0))."
+	--
+	if "ghost" _in_ reference0
+	{
+		"\n\n\_q"
+		--
+		"\![*]\__q[OnInstallComplete.Action,call]Call %(reference0)\__q  \![*]\__q[OnInstallComplete.Action,change]Change to %(reference0)\__q\n\n"
+		--
+		"\![*]\q[Thanks,blank]"
+	}
+}
+
+OnInstallComplete.Action
+{
+	if reference0 == "change"
+	{
+		"\![change,ghost,lastinstalled]"
+	}
+	else //call
+	{
+		"\![call,ghost,lastinstalled]"
+	}
+}
+
+OnInstallFailure
+{
+	_reason = reference0
+	case reference0
+	{
+		when "unlha32"; _reason = "could not load the dll to decompress lzh files"
+		when "extraction"; _reason = "failed to decompress the file"
+		when "invalid type"; _reason = "the install.txt is incorrect"
+		when "unsupported"; _reason = "the archive is not supported"
+		when "password"; _reason = "incorrect password"
+		when "artificial"; _reason = "canceled by user"
+	}
+	
+	"\0\s[0]Could not complete installation: %(_reason)."
+}
+
+
+//—————————————————————————————— Creating a .nar file ——————————————————————————————
+
+OnNarCreated
+{
+	_nar = "\_a[OnNarLocation,""%(reference1)""]%(reference0)\_a"
+	
+	"\0\s[0]Successfully created %(_nar)."
+}
+
+OnNarLocation
+{
+	"\![open,explorer,""%(reference0)""]"
+}
+
+
+//—————————————————————————————— Network Update ——————————————————————————————
+
+OnUpdateBegin
+{
+	"\0\s[0]Checking for updates.\w8"
+}
+
+OnUpdateReady
+{
+	reference0++ //Number of files starts from 0, so this displays the correct amount
+	
+	//plural checks, adds an s and changes is to are if there's more than 1 file
+	_s = ""; _are = "is"
+	if reference0 != 1; {_s = "s"; _are = "are"}
+	
+	"\0\s[0]There %(_are) %(reference0) new file%(_s).\w8"
+}
+
+OnUpdateComplete
+{
+	if reference0 == "none"
+	{
+		"\0\s[0]There are no new files."
+	}
+	else
+	{
+		"\0\s[0]Update complete."
+	}
+}
+
+OnUpdateFailure
+{	
+	_file = SPLITPATH(reference1)[2] + SPLITPATH(reference1)[3] //For MD5 errors, this gets the name and extension of the offending file
+	_reason = reference0
+	case reference0
+	{
+		when "timeout"; _reason = "connection timed out"
+		when "md5 miss"; _reason = "MD5 error on file %(_file)\n\nPlease contact the ghost author for assistance"
+		when "artificial"; _reason = "canceled by user"
+	}
+	"\0\s[0]Could not update: %(_reason)."
+}

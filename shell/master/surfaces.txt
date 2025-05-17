@@ -1,0 +1,116 @@
+descript
+{
+	version,1
+}
+
+//—————————————————————————————— Sakura surfaces ——————————————————————————————
+
+surface0-4,30,35
+{
+	animation11.interval,bind
+	animation11.pattern0,interpolate,1001,0,0,0
+	animation11.option,background
+
+	animation12.interval,bind
+	animation12.pattern0,interpolate,1002,0,0,0
+	animation12.option,background
+
+	animation13.interval,bind
+	animation13.pattern0,interpolate,1003,0,0,0
+	animation13.option,background
+
+	animation14.interval,bind
+	animation14.pattern0,interpolate,1004,0,0,0
+	animation14.option,background
+
+	animation15.interval,bind
+	animation15.pattern0,interpolate,1005,0,0,0
+	animation15.option,background
+
+	point.basepos.x,88
+	point.basepos.y,278
+}
+
+surface30
+{
+	animation1.interval,runonce
+	animation1.pattern0,base,30,0,0,0
+	animation1.pattern1,base,31,500,0,0
+	animation1.pattern2,base,32,225,0,0
+	animation1.pattern3,base,33,225,0,0
+	animation1.pattern4,base,34,225,0,0
+	animation1.pattern5,base,3,225,0,0
+}
+
+surface35
+{
+	animation1.interval,runonce
+	animation1.pattern0,base,3,0,0,0
+	animation1.pattern1,base,34,500,0,0
+	animation1.pattern2,base,33,225,0,0
+	animation1.pattern3,base,32,225,0,0
+	animation1.pattern4,base,31,225,0,0
+	animation1.pattern5,base,30,255,0,0
+}
+
+surface20,40,45
+{
+	animation10.interval,runonce
+	animation10.pattern0,interpolate,1006,0,0,0
+	animation10.option,background
+
+	point.basepos.x,148
+	point.basepos.y,387
+}
+
+surface40
+{
+	animation1.interval,runonce
+	animation1.pattern0,base,40,0,0,0
+	animation1.pattern1,base,41,500,0,0
+	animation1.pattern2,base,42,225,0,0
+	animation1.pattern3,base,43,225,0,0
+	animation1.pattern4,base,44,225,0,0
+	animation1.pattern5,base,20,225,0,0
+}
+
+surface45
+{
+	animation1.interval,runonce
+	animation1.pattern0,base,20,0,0,0
+	animation1.pattern1,base,44,500,0,0
+	animation1.pattern2,base,43,225,0,0
+	animation1.pattern3,base,42,225,0,0
+	animation1.pattern4,base,41,225,0,0
+	animation1.pattern5,base,40,255,0,0
+}
+
+surface50
+{
+	element0,overlay,bg6.png,0,0
+}
+
+surface1001
+{
+	element0,overlay,bg1.png,-265,-228
+}
+surface1002
+{
+	element0,overlay,bg2.png,-265,-228
+}
+surface1003
+{
+	element0,overlay,bg3.png,-265,-228
+}
+surface1004
+{
+	element0,overlay,bg4.png,-265,-228
+}
+surface1005
+{
+	element0,overlay,bg5.png,-265,-228
+}
+surface1006
+{
+	element0,overlay,bg5.png,-205,-119
+}

@@ -1,0 +1,131 @@
+OnAiTalk
+{
+	_talktime = GETSECCOUNT - boottime
+
+	if _talktime >= 2700	{OnStoryEnd}
+	else
+	{
+		if CHAIN.IDName == ""
+		{
+			LastTalk = RandomTalk
+		}
+		else
+		{
+			LastTalk = ChainTalk
+		}
+		LastTalk
+		if !talkintervaltoggle	{OnRandomizeTalk}
+	}
+}
+
+RandomTalk : nonoverlap_pool
+{
+	"\s[1]Ah, \w7this place.\w8.\w8.\w8 \w8\w8I have always loved how it would look at night."
+	"\s[0]Who am I? \w8\w8\s[3]You don't need to worry about that.\w8.\w8.\w8"
+	"\s[1]? \w8\w8Is something wrong? \w8\w8\s[4]Is something out of place?"
+	"\s[0]Did you see something out there? \w8\w8\s[4]You look a bit startled.\w8.\w8.\w8"
+	"\s[0]! \w8\w8\s[1]Do you hear that.\w8.\w8.\w8?"
+	"\s[0]Isn't this exciting? \w8\w8\s[3]Being so far away from everything you know.\w8.\w8.\w8 \w8\w8\s[2]anything could happen, \w7out here.\w8.\w8.\w8"
+	"\s[0]There's a hint of uncertainty in the air.\w8.\w8.\w8 \w8\w8\s[1]you seem hesitant."
+	"\s[0]Do you know where we are going? \w8\w8I do. \w8\w8\s[3]But I'm not telling.\w8.\w8.\w8"
+	"\s[0]It seems like we made it pretty far in these woods already. \w8\w8"
+	"\s[3]Do not ask questions you are not prepared to accept the answer to.\w8.\w8.\w8"
+	"\s[1]What is your life like? \w8\w8Do you have anything you hold dear?\e:chain=life"
+	"\s[0]How much time has passed? \w8\w8\s[1]From my experience everything tends to flow together."
+	"\s[0]The air seems frigid. \w8\w8\s[4]I can tell by how much you're shivering."
+	"\s[4]Such a peaceful night.\w8.\w8.\w8"
+	"\s[3]No.\w8.\w8.\w8 \w8\w8they are not here yet.\w8.\w8.\w8"
+	"\s[1]Where could they be.\w8.\w8.\w8?"
+	"\s[3]No.\w8.\w8.\w8 \w8\w8not here either.\w8.\w8.\w8"
+	"\s[0]Not here.\w8.\w8.\w8 \w8\w8\s[4]hmmm.\w8.\w8.\w8"
+	"\s[0]Maybe over here.\w8.\w8.\w8? \w8\w8\s[1]No."
+	"\s[0]Anyone here.\w8.\w8.\w8? \w8\w8Mmm, \w7\s[3]I guess not.\w8.\w8.\w8"
+	"\s[3]Nothing out here to illuminate our path but the moonlight. \w8\w8I'm sure you can barely see ahead of you."
+	"\s[4]How can you be so sure of what is right in front of you?"
+	"\s[0]The leaves in the trees stopped rustling. \w8\w8\s[1]Has the air finally turned stale?"
+	"\s[1]Has it been getting harder for you to keep walking? \w8\w8\s[4]Has it been harder for you to keep going?"
+	"\s[0]Are you tired yet? \w8\w8Maybe a rest sounds nice to you. \w8\w8\s[4]Maybe, \w7maybe not.\w8.\w8.\w8"
+	"\s[0]You must be so sore from such a long trek. \w8\w8\s[4]But how would I know.\w8.\w8.\w8"
+	"\s[1]Have you ever thought your night would turn out like this? \w8\w8\s[3]Wandering the woods with a stranger.\w8.\w8.\w8 \w8\w8\s[2]you must feel like a fool."
+	"\s[0]You seem like you could use a break. \__w[3000]\w8\w8Though we have made it pretty far already.\w8.\w8.\w8 \w8\w8\s[3]I say we should keep going."
+	"\s[0]Still and quiet.\w8.\w8.\w8 \w8\w8\s[4]just the way I like it."
+	"\s[0]What are we looking for? \w8\w8\s[3]You will know soon enough"
+	"\s[0]Do you think the moon looks beautiful this night? \w8\w8\s[1]I think it always looks wonderful.\w8.\w8.\w8"
+	"\s[3]Let's try going this way.\w8.\w8.\w8"
+	"\s[0]Does it feel like we are going in circles? \__w[3000]\w8\w8.\w8.\w8.\w8\s[4]does that tree look familiar to you?"
+	"\s[0]We seem to have gotten away from the animals, \w7\s[1]I bet you can't even hear them from out here.\w8.\w8.\w8"
+	"\s[0]Don't worry, \w7we should be able to rest soon.\w8.\w8.\w8"
+	"\s[0]Where do we go from here.\w8.\w8.\w8 \w8\w8\s[3]that way."
+	"\s[3]Do we turn left or right at this tree stump.\w8.\w8.\w8"
+	"\s[0]We've made it past the fairy ring.\w8.\w8.\w8 \w8\w8we should be on the right track."
+	"\s[0]Have you had any sustenance yet? \w8\w8\s[4]Where we are going you'll be able to eat as much as you like.\w8.\w8.\w8"
+	"\s[0]More and more dead trees, \w7rotting away. \w8\w8\s[4]How unfortunate of them.\w8.\w8.\w8 \w[3000]\w8\w8I still find them beautiful, \w7though."
+	"\s[1]How lucky are we to have met each other on such a breathtaking night.\w8.\w8.\w8"
+	"\s[4]I love the way the stars glisten in the night sky.\w8.\w8.\w8"
+	"\s[0]Go past the.\w8.\w8.\w8 \w8\w8\s[4]is that right?"
+	"\s[3]Where do we go from here.\w8.\w8.\w8? \w8\w8Oh, \w7of course, \w7I remember now.\w8.\w8.\w8"
+	"\s[0]You seem to have broken out in a sudden sweat. \w8\w8\s[4]Are you getting anxious yet.\w8.\w8.\w8?"
+	"\s[3]It'll all be over, \w7soon enough.\w8.\w8.\w8"
+	"\s[1]Such a clear night. \w8\w8I bet you could make out the stars from here.\w8.\w8.\w8"
+	"\s[1]Am I hiding something from you? \w8\w8.\w8.\w8.\w8\s[4]are you hiding something from me?"
+	"\s[0]It doesn't matter if you're lost.\w8.\w8.\w8 \w8\w8\s[3]we are going exactly where we are needed.\w8.\w8.\w8"
+	"\s[0]Are you feeling comfortable? \w8\w8.\w8.\w8.\w8\s[4]I thought so, \w7you look wheathered."
+	"\s[3]You will find out soon enough.\w8.\w8.\w8"
+	"\s[3]Don't trip over any old stones on the way there.\w8.\w8.\w8"
+	"\s[0]You must be feeling tense."
+	"\s[0]You must not have been in these woods before. \w8\w8\s[1]Gotten too comfortable with life in the city, \w7I would assume.\w8.\w8.\w8 \w8\w8There is much more to this place than you could imagine.\w8.\w8.\w8"
+	"\s[0]You seem to be shaking.\w8.\w8.\w8 \w8\w8Is it too cold? \w8\w8Or.\w8.\w8.\w8 \w8\w8is it in anticipation of what is to come.\w8.\w8.\w8?"
+	"\s[0]How much longer? \w8\w8.\w8.\w8.\w8Oh, \w7\s[3]I can't say.\w8.\w8.\w8"
+	"\s[0]Are you afraid? \w8\w8.\w8.\w8.\w8\s[4]what is there to be afraid of?"
+	"\s[0]Don't trip over any old bones on the way there.\w8.\w8.\w8"
+	"\s[0]You look like you've become numb to your pain.\w8.\w8.\w8 \__w[3000]\w8\w8that means we can keep going."
+	"\s[3]There's someone out there waiting for you.\w8.\w8.\w8 \w8\w8they say they can't wait to finally meet you."
+}
+
+life
+{{CHAIN
+	"\s[1]Friends, \w7loved ones, \w7everyday aquaintences.\w8.\w8.\w8 \__w[3000]\w8\w8\s[3]Anyone who would miss you if you were to suddenly disappear.\w8.\w8.\w8"
+	"\s[4]I wonder how they would feel at this very moment.\w8.\w8.\w8"
+	"\s[1]Have you ever wondered what their lives would be like if you suddenly weren't in it? \__w[3000]\w8\w8\s[4]Just an interesting thing to think about.\w8.\w8.\w8"
+}}CHAIN
+
+OnStoryEnd
+{
+	epilogueflag = 1
+	aitalkinterval = 0
+
+	"\![bind,blackout,100,1]\![raise,OnEpilogueA]"
+}
+
+OnEpilogueA :all
+{
+	"\t\_w[5000]Can you feel it?\xDo you know where we are now?\x\b[-1]"
+	"\t\w_[3000]You may not be able to feel anything at this moment.\xYou may not be able to see or hear anything either.\w8.\w8.\w8\x\s[1]That's okay. \w8\w8That is nothing to be worried about.\x\s[4]Beings like you tend to worry a lot I find.\x\b[-1]"
+	"\t\s[0]\w_[3000]I know how you must feel. \w8\w8This situation you found yourself in, \w7it must seem so scary.\w8.\w8.\w8\xThat usually how it goes, at first.\xBut no matter, \w7\s[2]these feelings will not matter soon enough.\x\b[-1]"
+	"\t\s[0]\w_[3000]It'll all be okay.\xIn the end, \w7everything will have been nothing but a haze.\x\s[4]Isn't that beautiful in a way.\x\s[2]You are about to witness something so wonderous, \w7yet you won't be able to remember any of it.\xThat's fine. \w8\w8I will hold on to this memory for you.\w8.\w8.\w8\x\b[-1]"
+	"\t\w_[3000]Have you ever thought your night would end like this?\xYou really are quite the fool. \w8\w8\s[4]Fallen for my sweet little trap.\w8.\w8.\w8\x\b[-1]"
+	"\t\w_[1500].\w8.\w8.\w8\xAh, \w7there it is.\x\s[35]There's someone here I want you to meet.\x\![raise,OnEpilogueB]"
+}
+
+OnEpilogueB :all
+{
+	"\t\s[40]\_w[5000]\s[20]%(balloonex)\![set,balloonwait,150%]\_w[3000]...thank you, little one...\n\w[2000]...you have done well...\x"
+	"\b[-1]\w[2000]%(balloonex)\![set,balloonwait,150%]...now everything is in place...\n\w[2000]...we can proceed...with our ceremony...\x"
+	"\b[-1]\w[2000]%(balloonex)\![set,balloonwait,150%]...i must warn...\n\w[2000]...one you leave...you will not be able to remain as you are...\n\w[2000]...you will not be able to return to this world...\n\w[2000]...you will not remember your old life...nor will anyone else...\x"
+	"\b[-1]\w[2000]%(balloonex)\![set,balloonwait,150%]...are you ready to accept this?\n\n"
+	"%(balloonex)\t\*\![*]\q[Yes,OnEpilogueAccept,accept]        \![*]\q[No,OnEpilogueAccept,deny]"
+}
+
+OnEpilogueAccept
+{
+	if reference0 == "accept"
+	{
+		"\![set,balloonwait,125%]\s[45]%(balloonex)\_w[3000]...then let us begin...\n. . .let  us  begin  anew. . .\x"
+	}
+	elseif reference0 == "deny"
+	{
+		"\![set,balloonwait,125%]%(balloonex)\_w[3000]...i am sorry you are not ready...\x%(balloonex)\w[2000]...but it must be done...\x%(balloonex)\w[2000]...i will try to make the process as comfortable as possible...\x%(balloonex)\w[2000]...i am so sorry...\x\s[45]%(balloonex)\w[2000]. . .i  am  so  so  sorry. . .\x"
+	}
+	--
+	"\_w[3000]%(epiloguesurface)"
+}

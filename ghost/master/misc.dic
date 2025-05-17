@@ -1,0 +1,64 @@
+effectfade : all
+{
+	for _i = 0; _i <= 10; _i++	{"\_w[175]\![set,alpha,%(_i * 10)]"}
+}
+
+transparent
+{
+	"\![set,alpha,0]\![bind,blackout,%(bgnum),1]"
+}
+
+OnRandomizeTalk
+{
+	aitalkinterval = (RAND(6) + 1)  * 30
+}
+
+nextbg
+{
+	bgnum += 25
+
+	"%(bgnum)"
+}
+/*
+OnBgSwitch : all
+{
+	_j = 0
+	for _i = 0; _i <= 4; _i++
+	{
+		_j = _i * 25
+		"\![bind,blackout,%(_j),1]\_w[750]"
+	}
+	"\![raise,OnEpilogueA]"
+}
+*/
+OnMinuteChange
+{
+	currentmin++
+
+	if currentmin > 9
+	{
+		if currentmin % 9 == 0 && currentpart != 75	{"\![bind,blackout,%(nextbg),1]"}
+	}
+	
+}
+
+OnDressupChanged
+{
+	currentpart = reference1
+}
+
+epiloguesurface
+{
+	"\s[50]"
+}
+
+balloonex
+{
+	if SHIORI3FW.BalloonName == "wisp"	{"\b[4]"}
+	else	{"\b[0]"}
+}
+
+blank
+{
+	""
+}

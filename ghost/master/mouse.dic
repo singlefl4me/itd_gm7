@@ -1,0 +1,15 @@
+OnMouseDoubleClick
+{
+	if !epilogueflag
+	{
+		if reference5 == 0 //reference5 is the mouse button being clicked, in this case a left click
+		{
+			if reference3 == 0
+			{
+				if epilogueflag == 1	{"%(epiloguesurface)"}
+				else	{OnSakuraMenu}
+			}
+		}
+	}
+	
+}

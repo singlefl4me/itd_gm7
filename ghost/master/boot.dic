@@ -1,0 +1,26 @@
+OnFirstBoot : all
+{
+	LastTalk = ""
+	talkintervaltoggle = 0
+	boottime = GETSECCOUNT
+	epilogueflag = 0
+	currentmin = 0
+	bgnum = 0
+	currentpart = 0
+	
+	"\t\0%(transparent)\s[30]\![anim,pause,1]\_w[3000]%(effectfade)\_w[3000]\![anim,resume,1]\_w[5000]\w8.\w8.\w8.\w8\w8? \w8\w8You're here. \w8\w8\s[2]You found me. \w8\w8\s[0]Am I the one you were looking for? \w8\w8\s[4]Or were you looking to get something from me?\x"
+	//"That's the whole reason why your here. Answers, explanations, rationality... you're not going to find what you're looking for."
+	"\t\s[0]I'm looking for someone too. \w8\w8\s[2]They said to meet them here and yet\w8.\w8.\w8. they may have gone deeper into the darkness of the woods.\x"
+	"\t\s[0]Maybe we can go look together\w8.\w8.\w8. \s[4]Wouldn't that be nice?\x"
+}
+
+OnBoot
+{
+	if epilogueflag == 1	{"%(epiloguesurface)"}
+	else	{OnFirstBoot}
+}
+
+OnClose
+{
+	"\w8\w8\w8\w8\-"
+}

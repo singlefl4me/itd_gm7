@@ -1,0 +1,40 @@
+//Hotkeys
+OnKeyPress
+{
+	if !epilogueflag
+	{
+		if reference0 == "f1"; "\![open,readme]"
+		elseif reference0 == "t"; OnAiTalk
+		elseif reference0 == "r"; OnLastTalk
+	}
+	
+}
+
+OnSurfaceRestore : all
+{
+	if epilogueflag == 1	{"%(epiloguesurface)"}
+	else
+	{
+		_surfacechance = RAND(2)
+		if reference0 == 3 && _surfacechance == 1	{"\0\s[3]"}
+		else	{"\0\s[0]"}
+	}
+}
+
+OnWindowStateRestore
+{
+	OnSurfaceRestore
+}
+
+
+On_homeurl
+{
+	"https://raw.githubusercontent.com/singlefl4me/itd_gm7/main/updates/"
+}
+
+
+
+username
+{
+	SHIORI3FW.UserName
+}

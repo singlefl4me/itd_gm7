@@ -1,0 +1,67 @@
+OnSakuraMenu : all
+{
+	"\C\![lock,balloonrepaint]\c"
+	"\0\s[0]\b[2]\![set,autoscroll,disable]\*"
+	
+	"\n\_q\![*]\q[Talk to me,OnAiTalk]  "
+	switch LastTalk == "" //Uses top option if there is a dialogue to repeat
+	{
+		"\![*]\q[Say that again,OnLastTalk]"
+		"\![*]\f[color,disable]Say that again\f[color,default]"
+	}
+	
+	"\n\n"
+
+	"Talkrate:          "
+			
+	_times = ("Off,0","30s,30","1m,60","3m,180","5m,300",)
+	
+	switch talkintervaltoggle
+	{
+		{
+			"\![*]\q[Random,OnTalkRateToggle,1]\n\n"
+
+			foreach _times ; _time
+			{
+				"\f[color,disable]%(_time[0])\f[color,default]   "
+			}
+		}
+		
+		{
+			"\![*]\q[Fixed,OnTalkRateToggle,0]\n\n"
+			
+			foreach _times ; _time
+			{
+				switch TOINT(_time[1]) == aitalkinterval
+				{
+					"\__q[OnTalkRateChange,%(_time[1])]%(_time[0])\__q   "
+					"\_a[OnTalkRateChange,%(_time[1])]%(_time[0])\_a   "
+				}
+			}
+		}
+	}
+	
+	"\n\n"
+	
+	"\![*]\q[Close,blank]"
+	"\![unlock,balloonrepaint]\![set,balloontimeout,-1]"
+}
+
+OnLastTalk
+{
+	LastTalk
+}
+
+OnTalkRateToggle
+{	
+	talkintervaltoggle = TOINT(reference0)
+	if talkintervaltoggle == 0	{OnRandomizeTalk}
+	else {aitalkinterval = 300}
+	OnSakuraMenu
+}
+
+OnTalkRateChange
+{
+	aitalkinterval = TOINT(reference0)
+	OnSakuraMenu
+}

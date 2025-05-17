@@ -1,0 +1,6 @@
+charset,UTF-8
+type,ghost
+
+name,into the darkness...
+directory,itd_gm7
+balloon.directory,wisp
